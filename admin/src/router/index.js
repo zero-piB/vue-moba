@@ -14,8 +14,14 @@ const routes = [
     children:[
       {
         path: '/categories/create',
-        name: 'CategoryEdit',
+        // name: 'CategoryEdit',
         component: CategoryEdit
+      },
+      {
+        path: '/categories/edit/:id',
+        // name: 'CategoryEdit',
+        component: CategoryEdit,
+        props:true,//将id注入这个组件中
       },
       {
         path: '/categories/list',

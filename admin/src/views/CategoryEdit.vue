@@ -1,7 +1,14 @@
 <template>
     <div>
-        <h1>我是编辑页面</h1>
+        <h1>{{id?'编辑分类':'新建分类'}}</h1>
         <el-form label-width="120px" @submit.native.prevent="save">
+            <el-form-item label="上级分类">
+                <el-select v-model="model.parent">
+                    <el-option v-for="item in parents" :key="item._id" 
+                        :label="item.name" :value="item._id">
+                    </el-option>
+                </el-select>
+            </el-form-item>
             <el-form-item label="名称">
                 <el-input v-model="model['name']"/>
             </el-form-item>
@@ -17,20 +24,39 @@
 export default {
     data(){
         return{
-            model:{
-                name:"2222"
-            }
+            model:{},
+            parents:[]
         }
+    },
+    props:{  //和路由解耦
+        id:{}
     },
     methods:{
         async save(){
-            await this.axios.post('categories',this.model)
+            if(this.id){
+                await this.axios.put(`rest/categories/${this.id}`,this.model)
+                
+            }else{
+                await this.axios.post('rest/categories',this.model)
+            } 
             this.$router.push('/categories/list')
             this.$message({
                 type:'success',
-                message:'提交成功'
+                message:'更新成功'
             }) 
+        },
+        async fetch(){
+            const res = await this.axios.get(`rest/categories/${this.id}`)
+            this.model = res.data
+        },
+        async fetchParent(){
+            const res = await this.axios.get(`rest/categories`)
+            this.parents = res.data
         }
+    },
+    created(){
+        this.id && this.fetch()
+        this.fetchParent()
     }
 }
 </script>
