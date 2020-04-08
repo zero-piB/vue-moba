@@ -43,4 +43,15 @@ module.exports = app =>  {
         req.Model = Model
         next()
     },router)
+
+    //处理上传图片的模块
+    const multer = require('multer')
+    const upload = multer({dest:__dirname + '/../../uploads'});
+    app.post('/admin/api/upload',upload.single('file'),async(req,res)=>{
+        //用了upload.single后，req上回挂载一个file
+        const file = req.file
+        //服务端静态资源地址
+        file.url = `http://localhost:3000/uploads/${file.filename}`
+        res.send(file)
+    })
 }
