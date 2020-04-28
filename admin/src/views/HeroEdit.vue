@@ -65,15 +65,12 @@ export default {
 </script>
 
 <style language='scss'>
-.avatar-uploader .el-upload{
+  .avatar-uploader .el-upload{
     border: 1px dashed #615e5e;
     border-radius: 6px;
     cursor: pointer;
     position: relative;
     overflow: hidden;
-  }
-  .avatar-uploader .el-upload:hover {
-    border-color: #409EFF;
   }
   .avatar-uploader-icon {
     font-size: 28px;
