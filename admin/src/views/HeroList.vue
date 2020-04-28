@@ -1,9 +1,10 @@
 <template>
     <div>
-        <h1>物品列表</h1>
+        <h1>英雄列表</h1>
         <el-table :data="heroes">
             <el-table-column prop="_id" label="ID" width="220"></el-table-column>
-            <el-table-column prop="name" label="物品名称"></el-table-column>
+            <el-table-column prop="name" label="英雄名称"></el-table-column>
+             <el-table-column prop="title" label="称号"></el-table-column>
             <el-table-column>
                 <template slot-scope="scope">
                     <img :src="scope.row.avatar" style="height:3rem">
