@@ -21,7 +21,7 @@
             <el-form-item label="类型">
                <el-select v-model="model.categories" multiple>
                    <el-option v-for="item of categories" :key="item._id"
-                   :lable="item.name" :value="item._id"/>
+                   :label="item.name" :value="item._id"></el-option>
                </el-select>
             </el-form-item>
             <el-form-item label="难度">
@@ -36,6 +36,28 @@
             <el-form-item label="生存">
                 <el-rate style="margin-top:0.6rem" :max="9" show-score v-model="model.scores.survive"/>
             </el-form-item>
+
+            <el-form-item label="顺风出装">
+                <el-select v-model="model.items1" multiple>
+                   <el-option v-for="item of items" :key="item._id"
+                   :label="item.name" :value="item._id"></el-option>
+               </el-select>
+            </el-form-item>
+            <el-form-item label="逆风出装">
+                <el-select v-model="model.items2" multiple>
+                   <el-option v-for="item of items" :key="item._id"
+                   :label="item.name" :value="item._id"></el-option>
+               </el-select>
+            </el-form-item>
+            <el-form-item label="使用技巧">
+                <el-input type="textarea" v-model="model.usageTips"/>
+            </el-form-item>
+            <el-form-item label="对线技巧">
+                <el-input type="textarea" v-model="model.battleTips"/>
+            </el-form-item>
+            <el-form-item label="团战技巧">
+                <el-input type="textarea" v-model="model.teamTips"/>
+            </el-form-item>
             <el-form-item>
                 <el-button type="primary" native-type="submit">保存</el-button>
             </el-form-item>
@@ -49,10 +71,11 @@ export default {
     data(){
         return{
             categories:[],
+            items:[],
             model:{
                 avatar:'',
                 scores:{    
-                    difficulty:1,
+                    difficulty:0,
                 }
             },
         }
@@ -76,11 +99,16 @@ export default {
         },
         async fetch(){
             const res = await this.axios.get(`rest/heroes/${this.id}`)
-            this.model = res.data
+            //this.model = res.data
+            this.model = Object.assign({}, this.model, res.data); //这种复制方式不是暴力替换
         },
         async fetchCategories(){
             const res = await this.axios.get(`rest/categories`)
             this.categories = res.data
+        },
+        async fetchItems(){
+            const res = await this.axios.get(`rest/items`)
+            this.items = res.data
         },
         afterUpload(res){
             this.model.avatar = res.url
@@ -89,6 +117,7 @@ export default {
     },
     created(){
         this.fetchCategories()
+        this.fetchItems()
         this.id && this.fetch()
     }
 }
