@@ -88,16 +88,6 @@
                                 <el-button type="danger" @click="model.skills.splice(i,1)">删除技能</el-button>
                             </el-form-item>
                             
-                            <!-- <el-form-item>
-                                <el-upload
-                                    class="avatar-uploader"
-                                    :action="this.axios.defaults.baseURL+'/upload' "
-                                    :show-file-list="true"
-                                    :on-success="afterUpload">
-                                    <img v-if="model.avatar" :src="model.avatar" class="avatar">
-                                    <i v-else class="el-icon-plus avatar-uploader-icon"></i>
-                                </el-upload>
-                            </el-form-item> -->
                         </el-col>
                     </el-row>
                 </el-tab-pane>
@@ -168,25 +158,3 @@ export default {
 }
 </script>
 
-<style language='scss'>
-  .avatar-uploader .el-upload{
-    border: 1px dashed #615e5e;
-    border-radius: 6px;
-    cursor: pointer;
-    position: relative;
-    overflow: hidden;
-  }
-  .avatar-uploader-icon{
-    font-size: 28px;
-    color: #8c939d;
-    width: 5rem;
-    height: 5rem;
-    line-height: 5rem!important;
-    text-align: center;
-  }
-  .avatar {
-    width: 5rem;
-    height: 5rem;
-    display: block;
-  }
-</style>

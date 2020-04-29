@@ -21,10 +21,17 @@
                 <el-menu-item index="/heroes/create">英雄管理</el-menu-item>
                 <el-menu-item index="/heroes/list">英雄列表</el-menu-item>
             </el-menu-item-group>
+
             <el-menu-item-group>
                 <template slot="title">文章</template>
                 <el-menu-item index="/articles/create">文章管理</el-menu-item>
                 <el-menu-item index="/articles/list">文章列表</el-menu-item>
+            </el-menu-item-group>
+
+            <el-menu-item-group>
+                <template slot="title">广告位</template>
+                <el-menu-item index="/ads/create">广告位管理</el-menu-item>
+                <el-menu-item index="/ads/list">广告位列表</el-menu-item>
             </el-menu-item-group>
         </el-submenu>
 
