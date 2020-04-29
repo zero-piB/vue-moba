@@ -111,7 +111,7 @@ export default {
                 scores:{    
                     difficulty:0,
                 },
-                
+                skills:[]
             },
         }
     },
