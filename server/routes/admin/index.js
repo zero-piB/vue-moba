@@ -27,6 +27,9 @@ module.exports = app =>  {
         if(req.Model.modelName === 'Category'){
             queryOptions.populate = 'parent'
         }
+        if(req.Model.modelName === 'Article'){
+            queryOptions.populate = 'categories'
+        }
         const items = await req.Model.find()
         .setOptions(queryOptions).limit(10) //若有关联字段parent,则查询完整信息
         res.send(items)
