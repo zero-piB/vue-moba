@@ -2,7 +2,7 @@
     <div>
         <h1>{{id?'编辑英雄':'新建英雄'}}</h1>
         <el-form label-width="120px" @submit.native.prevent="save">
-            <el-tabs value="skills" type="border-card">
+            <el-tabs value="basic" type="border-card">
                 <el-tab-pane label="基础信息" name="basic">
                     <el-form-item label="名称">
                         <el-input v-model="model.name"/>
@@ -139,7 +139,12 @@ export default {
         },
         async fetchCategories(){
             const res = await this.axios.get(`rest/categories`)
-            this.categories = res.data
+            this.categories = res.data.filter(item=>{
+                if(item.parent){
+                    return item.parent.name === '英雄'
+                }
+                return false;
+            })
         },
         async fetchItems(){
             const res = await this.axios.get(`rest/items`)

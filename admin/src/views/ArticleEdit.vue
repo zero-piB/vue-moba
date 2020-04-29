@@ -58,7 +58,12 @@ export default {
         },
         async fetchCategories(){
             const res = await this.axios.get(`rest/categories`)
-            this.categories = res.data
+            this.categories = res.data.filter(item=>{
+                if(item.parent){
+                    return item.parent.name === '新闻资讯'
+                }
+                return false;
+            })
         },
         async handleImageAdded(file, Editor, cursorLocation, resetUploader){
             const formData = new FormData()
