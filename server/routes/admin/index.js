@@ -55,7 +55,7 @@ module.exports = app =>  {
     //处理上传图片的模块
     const multer = require('multer')
     const upload = multer({dest:__dirname + '/../../uploads'});
-    app.post('/admin/api/upload',upload.single('file'),async(req,res)=>{
+    app.post('/admin/api/upload',authMiddleware(), upload.single('file'),async(req,res)=>{
         //用了upload.single后，req上回挂载一个file
         const file = req.file
         //服务端静态资源地址
@@ -85,9 +85,15 @@ module.exports = app =>  {
 
     //错误捕获
     app.use((err, req, res, next) => {
-        // res.send({ message: err.message }, err.message || 500);
-        res.status(err.statusCode || 500).send({
-            message: err.message
-        })
+        if (err.message === 'jwt malformed' || err.message === "invalid signature") {
+            res.status(401).send({
+                message: "不要乱改token"
+            })
+        } else {
+            res.status(err.statusCode || 500).send({
+                message: err.message
+            })
+        }
+        
     })
 }
