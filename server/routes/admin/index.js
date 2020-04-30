@@ -47,15 +47,23 @@ module.exports = app =>  {
         res.send(model)
     })
 
-    const authMiddleware = require('../../middleware/auth')
     const resourceMiddleware = require('../../middleware/resource')
+    const authMiddleware = require('../../middleware/auth')
+    
+    //验证token
+    app.post('/admin/api/token', authMiddleware(), (req, res) => {
+        res.status(200).send({
+            message:'ok'
+        })
+    })
+
     //请求资源
-    app.use('/admin/api/rest/:resource', authMiddleware(), resourceMiddleware() ,router)
+    app.use('/admin/api/rest/:resource', resourceMiddleware() ,router)
 
     //处理上传图片的模块
     const multer = require('multer')
     const upload = multer({dest:__dirname + '/../../uploads'});
-    app.post('/admin/api/upload',authMiddleware(), upload.single('file'),async(req,res)=>{
+    app.post('/admin/api/upload', upload.single('file'),async(req,res)=>{
         //用了upload.single后，req上回挂载一个file
         const file = req.file
         //服务端静态资源地址
@@ -82,6 +90,8 @@ module.exports = app =>  {
 
         res.send({token,username})
     })
+
+    
 
     //错误捕获
     app.use((err, req, res, next) => {

@@ -16,7 +16,7 @@
                     <el-form-item label="广告图">
                         <el-upload
                             class="avatar-uploader"
-                            :action="axios.defaults.baseURL+'/upload' "
+                            :action="uploadUrl"
                             :show-file-list="false"
                             :on-success="res => $set(item,'imgUrl',res.url)">
                             <img v-if="item.imgUrl" :src="item.imgUrl" class="avatar">

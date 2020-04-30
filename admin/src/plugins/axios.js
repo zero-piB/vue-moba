@@ -34,7 +34,7 @@ _axios.interceptors.request.use(config => {
 _axios.interceptors.response.use(res => {
   return res
 }, err => {
-  if (err.response.data.message) {
+  if (err.response.data.message !== 'ok') {
     Vue.prototype.$message({
       type: 'error',
       message: err.response.data.message

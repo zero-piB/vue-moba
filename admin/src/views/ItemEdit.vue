@@ -8,7 +8,7 @@
             <el-form-item label="图标">
                 <el-upload
                     class="avatar-uploader"
-                    :action="this.axios.defaults.baseURL+'/upload' "
+                    :action="uploadUrl"
                     :show-file-list="false"
                     :on-success="afterUpload">
                     <img v-if="model.icon" :src="model.icon" class="avatar">

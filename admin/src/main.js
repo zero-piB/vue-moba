@@ -7,6 +7,14 @@ import './style.css'
 
 Vue.config.productionTip = false
 
+Vue.mixin({
+  computed: {
+    uploadUrl() {
+      return this.axios.defaults.baseURL + '/upload'
+    }
+  }
+})
+
 new Vue({
   router,
   render: h => h(App)
