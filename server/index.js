@@ -2,6 +2,8 @@ const express = require('express')
 
 const app = express()
 
+app.set('secret', 'laskndalsdkm')
+
 app.use(require('cors')())
 app.use(express.json())
 //静态资源托管

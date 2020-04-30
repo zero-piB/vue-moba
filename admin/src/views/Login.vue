@@ -26,8 +26,17 @@ export default {
         }
     },
     methods:{
-        login(){
-            console.log(this.model)
+        async login(){
+            const res = await this.axios.post('/login',this.model)
+            const {token,username} = res.data
+            if(token){
+                localStorage.setItem('token',token)
+                this.$router.push('/')
+                this.$message({
+                    tpye:'success',
+                    message:`欢迎你，管理员${username}`,
+                })
+            }
         }
     }
 }

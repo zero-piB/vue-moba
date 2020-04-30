@@ -17,27 +17,30 @@ let config = {
 
 const _axios = axios.create(config);
 
-_axios.interceptors.request.use(
-  function(config) {
-    // Do something before request is sent
-    return config;
-  },
-  function(error) {
-    // Do something with request error
-    return Promise.reject(error);
+//请求前处理，检验是否登陆
+_axios.interceptors.request.use(config => {
+    const token = localStorage.getItem('token')
+    if (token) {
+      config.headers.Authorization = 'Bearer ' + token
+    }
+    return config
+}, err => {
+    
+    return Promise.reject(err)
   }
 );
 
-// Add a response interceptor
-_axios.interceptors.response.use(
-  function(response) {
-    // Do something with response data
-    return response;
-  },
-  function(error) {
-    // Do something with response error
-    return Promise.reject(error);
+_axios.interceptors.response.use(res => {
+  return res
+}, err => {
+  if (err.response.data.message) {
+    Vue.prototype.$message({
+      type: 'error',
+      message: err.response.data.message
+    })
   }
+  return Promise.reject(err)
+}
 );
 
 Plugin.install = function(Vue) {
