@@ -6,7 +6,12 @@
         <div class="fs-md py-1">王者荣耀</div>
         <div class="fs-xs text-grey-1">团队成就更多</div>
       </div>
-      <button type="button" class="btn bg-primary">立即下载</button>
+      <div class="pb-2">
+        <button type="button" class="btn bg-primary">
+          <span>立即下载</span>  
+        </button>
+      </div>
+      
     </div>
     <div class="bg-primary">
       <div class="nav d-flex pt-4 pb-3 jc-around text-white">
