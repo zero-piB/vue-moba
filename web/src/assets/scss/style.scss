@@ -125,7 +125,11 @@ a{
 .btn{
     border: none;
     border-radius: 0.1538rem;
-    font-size: map-get($font-size, 'xs');
+    font-size: map-get($font-size, 'xxs');
+    span{
+        display: block;
+        -webkit-transform:scale(0.9);
+    }
     padding: 0.3rem 0.7rem;
     font-weight: 500;
 }
@@ -138,6 +142,21 @@ a{
         &.active{
             border-bottom: 3px solid map-get($colors, "white")
         }
+    }
+}
+
+.nav_icons{
+    border-top: 1px solid $border-color;
+    border-bottom: 1px solid $border-color;
+    .nav_item{
+      width: 25%;
+      border-right: 1px solid $border-color;
+      &:nth-child(4n){
+        border-right: none;
+      }
+      &:nth-child(13){
+        margin-bottom: 0.5rem;
+      }
     }
 }
 
