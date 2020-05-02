@@ -1,3 +1,4 @@
+@import './variables';
 //reset
 *{
     box-sizing: border-box;
@@ -19,14 +20,13 @@ a{
     color: #999;
 }
 
-$colors:(
-    "primary":#db9e3f,
-    "white":#fff,
-    "light":#f9f9f9,
-    "dark-1": #343440,
-    "dark":#222,
-    "black":#000
-);
+.w-100{
+    width: 100%;
+}
+
+.h-100{
+    height: 100%;
+}
 
 //color
 @each $colorKey, $color in $colors {
@@ -46,14 +46,6 @@ $colors:(
 }
 
 // font-size
-// $base-font-size:1rem;  //13px
-$font-size:(
-    xs:0.7692rem,  //10px
-    sm:0.9231rem, //12px
-    md:1rem,        //13px
-    lg:1.0769rem,   //14px
-    xg:1.2308rem,   //16px
-);
 @each $font-size-key, $f-size in $font-size{
     .fs-#{$font-size-key}{
         font-size: $f-size;
@@ -72,43 +64,19 @@ $font-size:(
 .flex-wrap{
     flex-wrap: wrap;
 }
-//3. 项目在主轴上的对其方式,justify-content
-$jc-flex:(
-    start:flex-start,
-    end:flex-end,
-    center:center,
-    between:space-between,
-    around:space-around,
-);
 
 @each $jcKey, $jc in $jc-flex {
     .jc-#{$jcKey}{
         justify-content: $jc;
     }
 }
-//4.项目在交叉轴上的对其方式
-$ai:(
-    start:flex-start,
-    end:flex-end,
-    center:center,
-    stretch:stretch
-);
+
 
 @each $aiKey, $ai in $ai {
     .ai-#{$aiKey}{
         align-items: $ai;
     }
 }
-
-//5. 轴线对齐方式align-content
-$ac-flex:(
-    start:flex-start,
-    end:flex-end,
-    center:center,
-    between:space-between,
-    around:space-around,
-    stretch:stretch
-);
 
 @each $acKey, $ac in $ac-flex {
     .ac-#{$acKey}{
@@ -124,22 +92,6 @@ $ac-flex:(
     flex-grow: 1;
 }
 
-
-//spacing 0-5 level
-$base-spacing-size:1rem;
-$spacing-types:(
-    m:maring,
-    p:pading
-);
-$spacing-direction:(
-    l:left,
-    r:right,
-    b:bottom,
-    t:top,
-);
-
-// m-0, mx-0,  mt-0 three types
-$spacing-sizes:(0 : 0, 1: 0.25, 2: 0.5, 3: 1, 4: 1.5, 5: 3.0);
 @each $level, $size in $spacing-sizes {
     //m-0
     @each $typeKey, $type in $spacing-types{
@@ -150,10 +102,10 @@ $spacing-sizes:(0 : 0, 1: 0.25, 2: 0.5, 3: 1, 4: 1.5, 5: 3.0);
     //mx-0,my-0
     @each $typeKey, $type in $spacing-types{
         .#{$typeKey}x-#{$level}{
-            #{$type}:auto $size*$base-spacing-size
+            #{$type}:0 $size*$base-spacing-size;
         }
         .#{$typeKey}y-#{$level}{
-            #{$type}:$size*$base-spacing-size auto 
+            #{$type}:$size*$base-spacing-size 0
         }
     }
     //mt-0
@@ -165,4 +117,8 @@ $spacing-sizes:(0 : 0, 1: 0.25, 2: 0.5, 3: 1, 4: 1.5, 5: 3.0);
         }
     }
     
+}
+
+.button{
+    border: none;
 }

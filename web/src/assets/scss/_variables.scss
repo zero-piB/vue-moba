@@ -1,0 +1,60 @@
+$colors:(
+    "primary":#db9e3f,
+    "white":#fff,
+    "light":#f9f9f9,
+    "dark-1": #343440,
+    "dark":#222,
+    "black":#000
+);
+
+// font-size
+// $base-font-size:1rem;  //13px
+$font-size:(
+    xs:0.7692rem,  //10px
+    sm:0.9231rem, //12px
+    md:1rem,        //13px
+    lg:1.0769rem,   //14px
+    xg:1.2308rem,   //16px
+);
+
+$jc-flex:(
+    start:flex-start,
+    end:flex-end,
+    center:center,
+    between:space-between,
+    around:space-around,
+);
+
+//4.项目在交叉轴上的对其方式
+$ai:(
+    start:flex-start,
+    end:flex-end,
+    center:center,
+    stretch:stretch
+);
+
+//5. 轴线对齐方式align-content
+$ac-flex:(
+    start:flex-start,
+    end:flex-end,
+    center:center,
+    between:space-between,
+    around:space-around,
+    stretch:stretch
+);
+
+//spacing 0-5 level
+$base-spacing-size:1rem;
+$spacing-types:(
+    m:margin,
+    p:padding
+);
+$spacing-direction:(
+    l:left,
+    r:right,
+    b:bottom,
+    t:top,
+);
+
+// m-0, mx-0,  mt-0 three types
+$spacing-sizes:(0 : 0, 1: 0.25, 2: 0.5, 3: 1, 4: 1.5, 5: 3.0);
