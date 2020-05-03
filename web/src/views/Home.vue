@@ -27,9 +27,10 @@
         <span class="fs-sm mt-2">收起</span>
       </div>
     </div>
-    
+    <!-- end of nav-icons -->
+    <i class="iconfont icon-menu text-grey"></i>
   </div>
-  <!-- end of nav-icons -->
+  
 </template>
 
 <script>
@@ -70,83 +71,4 @@ export default {
   }
 }
 
-.sprite{
-  background: url('../assets/images/index.png') no-repeat 0 0;
-  background-size: 28.8462rem;
-  display: inline-block;
-  &.sprite-news{
-    background-position: 63.546% 15.517%;
-    width: 1.7692rem;
-    height: 1.5385rem;
-  }
-  &.sprite-stories{
-    background-position: 90.483% 15.614%;
-    width: 1.7692rem;
-    height: 1.5385rem;
-  }
-  &.sprite-malls{
-    background-position: 36.746% 0.924%;
-    width: 1.4615rem;
-    height: 1.6923rem;
-  }
-  &.sprite-ava{
-    background-position: 10.408% 15.517%;
-    width: 1.5385rem;
-    height: 1.5385rem;
-  }
-  &.sprite-fishes{
-    background-position: 89.733% 1.266%;
-    width: 1.5385rem;
-    height: 1.5385rem;
-  }
-  &.sprite-honor{
-    background-position: 36.467% 15.287%;
-    width: 1.8462rem;
-    height: 1.6rem;
-  }
-  &.sprite-materials{
-    background-position: 9.302% 0.813%;
-    width: 2.3846rem;
-    height: 1.9231rem;
-  }
-  &.sprite-camps{
-    background-position: 63.3% 0.927%;;
-    width: 1.8462rem;
-    height: 1.8462rem;
-  }
-  &.sprite-fficial-accounts{
-    background-position: 0 96.207%;
-    width: 1.8462rem;
-    height: 1.5385rem;
-  }
-  &.sprite-releases{
-    background: url('../assets/images/releases.png') no-repeat 0 0;
-    width: 2.3846rem;
-    height: 1.9231rem;
-    background-size: contain;
-  }
-  &.sprite-battle-env{
-    background: url('../assets/images/battle-env.png') no-repeat 0 0;
-    background-size: contain;
-    width: 3rem;
-    height: 2rem;
-  }
-  &.sprite-teams{
-    background: url('../assets/images/teams.png') no-repeat 0 0;
-    background-size: contain;
-    width: 3.7em;
-    height: 2rem;
-  }
-  &.sprite-interactions{
-    background: url('../assets/images/interactions.png') no-repeat 0 0;
-    background-size: contain;
-    width: 2.5rem;
-    height: 2.5rem;
-  }
-  &.sprite-arrow{
-    background-position: 38.577% 52.076%;
-    width: 1.7692rem;
-    height: 1.7692rem
-  }
-}
 </style>

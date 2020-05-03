@@ -1,0 +1,65 @@
+{
+  "id": "",
+  "name": "",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "518926",
+      "name": "vidio",
+      "font_class": "icon1",
+      "unicode": "e60e",
+      "unicode_decimal": 58894
+    },
+    {
+      "icon_id": "3362945",
+      "name": "bookmark",
+      "font_class": "bookmark",
+      "unicode": "e652",
+      "unicode_decimal": 58962
+    },
+    {
+      "icon_id": "3918244",
+      "name": "strategy",
+      "font_class": "strategy",
+      "unicode": "e607",
+      "unicode_decimal": 58887
+    },
+    {
+      "icon_id": "4380416",
+      "name": "menu",
+      "font_class": "menu",
+      "unicode": "e619",
+      "unicode_decimal": 58905
+    },
+    {
+      "icon_id": "5846380",
+      "name": "tag",
+      "font_class": "tag",
+      "unicode": "e63c",
+      "unicode_decimal": 58940
+    },
+    {
+      "icon_id": "8329823",
+      "name": "Menu",
+      "font_class": "Menu",
+      "unicode": "e664",
+      "unicode_decimal": 58980
+    },
+    {
+      "icon_id": "10678255",
+      "name": "helmet-battle-li",
+      "font_class": "helmet-battle-li",
+      "unicode": "e912",
+      "unicode_decimal": 59666
+    },
+    {
+      "icon_id": "12592246",
+      "name": "Title Bar-Three level list title",
+      "font_class": "TitleBar-Threelevellisttitle",
+      "unicode": "e6a0",
+      "unicode_decimal": 59040
+    }
+  ]
+}
