@@ -135,12 +135,19 @@ a{
 }
 
 .nav{
-
+    display: flex;
     .nav-item{
         padding-bottom: 0.2rem;
         border-bottom: 3px solid transparent;
         &.active{
-            border-bottom: 3px solid map-get($colors, "white")
+            border-bottom-color: map-get($colors, "white")
+        }
+    }
+    &.nav-item-invesre{
+        padding-bottom: 0.2rem;
+        border-bottom: 3px solid transparent;
+        &.active{
+            border-bottom-color: map-get($colors, "primary")
         }
     }
 }

@@ -14,7 +14,7 @@
       
     </div>
     <div class="bg-primary">
-      <div class="nav d-flex pt-4 pb-3 jc-around text-white">
+      <div class="nav  pt-4 pb-3 jc-around text-white">
         <div class="nav-item active">
           <router-link tag="div" to="/">首页</router-link>
         </div>

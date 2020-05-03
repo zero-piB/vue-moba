@@ -28,7 +28,19 @@
       </div>
     </div>
     <!-- end of nav-icons -->
-    <i class="iconfont icon-menu text-grey"></i>
+    <m-card class="mt-3" title="新闻列表" icon="icon-Menu"></m-card>
+    <div>6666</div>
+    <div>6666</div>
+    <div>6666</div>
+    <div>6666</div>
+    <div>6666</div>
+    <div>6666</div>
+    <div>6666</div>
+    <div>6666</div>
+    <div>6666</div>
+    <div>6666</div>
+    <div>6666</div>
+    <div>6666</div>
   </div>
   
 </template>
