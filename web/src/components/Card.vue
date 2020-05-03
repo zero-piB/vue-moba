@@ -1,12 +1,11 @@
 <template>
-  <div class="crad bg-white py-4">
-    <header class="d-flex jc-center">
-      <i class="iconfont text-dark" :class="icon"></i>
-      <div>{{title}}</div>
-      <i class="iconfont icon-menu"></i>
+  <div class="card bg-white pt-1 pb-2">
+    <header class="card-head d-flex px-3 py-4">
+      <i class="iconfont" :class="icon"></i>
+      <div class="fs-xlg pl-2 flex-1">{{title}}</div>
+      <i class="iconfont icon-menu1 pr-1"></i>
     </header>
-    <div class="card-body">
-      我是body
+    <div class="card-body pt-3">
       <slot/>
     </div>
   </div>
@@ -21,6 +20,12 @@ export default {
 }
 </script>
 
-<style>
-
+<style lang="scss">
+@import "../assets/scss/variables";
+.card{
+  .card-head{
+    border-bottom: 1px solid $border-color;
+  }
+  border-bottom: 1px solid $border-color;
+}
 </style>

@@ -28,19 +28,20 @@
       </div>
     </div>
     <!-- end of nav-icons -->
-    <m-card class="mt-3" title="新闻列表" icon="icon-Menu"></m-card>
-    <div>6666</div>
-    <div>6666</div>
-    <div>6666</div>
-    <div>6666</div>
-    <div>6666</div>
-    <div>6666</div>
-    <div>6666</div>
-    <div>6666</div>
-    <div>6666</div>
-    <div>6666</div>
-    <div>6666</div>
-    <div>6666</div>
+    <m-list-card  class="mt-4" title="新闻资讯" icon="icon-menu" :newsData="newsData">
+      <template v-slot:items="{category}">
+        <div class="py-3" v-for="(item, i) in category.newsList" :key="i+10">
+          <span>[{{item.type}}]|</span>
+          <span>{{item.title}}</span>
+          <span>{{item.date}}</span>
+        </div>
+      </template>
+    </m-list-card>
+    <m-card class="mt-3" title="新闻资讯" icon="icon-menu"></m-card>
+
+    <m-card class="mt-3" title="英雄列表" icon="icon-helmet-battle-li"></m-card>
+    <m-card class="mt-3" title="精彩视频" icon="icon-icon1"></m-card>
+    <m-card class="mt-3" title="图文攻略" icon="icon-strategy"></m-card>
   </div>
   
 </template>
@@ -49,6 +50,16 @@
 export default {
   data(){
     return{
+
+      newsData:new Array(5).fill({
+        categoryName:'热门',
+        newsList:new Array(5).fill({
+          type:'活动',
+          title:'5月1日全服不停机更新公告',
+          date:'05/03'
+        })
+      }),
+
       home_nav:[{'title':'爆料站','class':'sprite-news'},{'title':'故事站','class':'sprite-stories'},
       {'title':'周边商城','class':'sprite-malls'},{'title':'体验服','class':'sprite-ava'},
       {'title':'新人专区','class':'sprite-fishes'},{'title':'荣耀·继承','class':'sprite-honor'},

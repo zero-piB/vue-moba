@@ -6,10 +6,11 @@ import './assets/iconfont/iconfont.css'
 import VueAwesomeSwiper from 'vue-awesome-swiper'
 import 'swiper/css/swiper.css'
 import Card from './components/Card'
-
+import ListCard from './components/ListCard'
 
 Vue.use(VueAwesomeSwiper)
 Vue.component('m-card', Card);
+Vue.component('m-list-card', ListCard);
 
 Vue.config.productionTip = false
 

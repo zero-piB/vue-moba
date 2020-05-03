@@ -143,10 +143,11 @@ a{
             border-bottom-color: map-get($colors, "white")
         }
     }
-    &.nav-item-invesre{
+    .nav-item-inverse{
         padding-bottom: 0.2rem;
         border-bottom: 3px solid transparent;
         &.active{
+            color:map-get($colors, "primary");
             border-bottom-color: map-get($colors, "primary")
         }
     }
