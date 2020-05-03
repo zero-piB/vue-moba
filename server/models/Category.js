@@ -8,4 +8,11 @@ const schema = new mongoose.Schema({
     }
 })
 
+schema.virtual('newsList', {
+    localField: '_id',
+    foreignField: 'categories',
+    justOne: false,
+    ref:'Article'
+})
+
 module.exports = mongoose.model('Category',schema)

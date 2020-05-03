@@ -4,7 +4,7 @@
         <el-table :data="items">
             <el-table-column prop="_id" label="ID" width="220"></el-table-column>
             <el-table-column prop="name" label="物品名称"></el-table-column>
-            <el-table-column>
+            <el-table-column label="图标">
                 <template slot-scope="scope">
                     <img :src="scope.row.icon" style="height:3rem">
                 </template>

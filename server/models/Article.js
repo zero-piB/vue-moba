@@ -7,6 +7,8 @@ const schema = new mongoose.Schema({
         ref:'Category', //绑定Category模型
     }],
     body:{type:String}
+}, {
+    timestamps:true
 })
 
 module.exports = mongoose.model('Article',schema)
