@@ -7,6 +7,14 @@ const schema = new mongoose.Schema({
         ref:'Category', //绑定Category模型
     }
 })
+ 
+//方法使用
+schema.virtual('children', {
+    localField: '_id',
+    foreignField: 'parent',
+    justOne: false,
+    ref:'Category'
+})
 
 schema.virtual('newsList', {
     localField: '_id',
