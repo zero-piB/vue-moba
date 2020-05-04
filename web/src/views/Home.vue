@@ -12,7 +12,7 @@
       </swiper-slide>
       <div class="swiper-pagination pagination-home text-right px-3 pb-2" slot="pagination"></div>
     </swiper> 
-    <!-- swiper  end-->
+    <!-- end of swiper -->
     <div class="nav_icons bg-white mt-4 pt-3">
       <div class="d-flex flex-wrap text-center">
         <div class="nav_item mb-4" v-for="(nav_item,i) in home_nav" :key="i">
@@ -29,7 +29,7 @@
     </div>
     <!-- end of nav-icons -->
     <m-list-card  class="mt-4" title="新闻资讯" icon="icon-menu" :catesData="newsData">
-      <template v-slot:items="{category}">
+      <template #items="{category}">
         <div class="py-3 d-flex" v-for="(item, i) in category.newsList" :key="i+10">
           <span class="text-dark-1 pl-4">[{{item.categoryName}}]</span>
           <span class="px-1">|</span>
@@ -38,7 +38,7 @@
         </div>
       </template>
     </m-list-card>
-
+<!-- end of newsList -->
     <m-list-card class="mt-4" title="英雄列表" icon="icon-helmet-battle-li" :catesData="heroesData" :class="'pb-4'">
       <template #items="{category}">
         <div class="d-flex flex-wrap pt-2" style="margin: 0 0.5rem">
@@ -49,7 +49,7 @@
         </div>
       </template>
     </m-list-card>
-
+<!-- end of heroesList -->
     
     <m-card class="mt-3" title="精彩视频" icon="icon-icon1"></m-card>
     <m-card class="mt-3" title="图文攻略" icon="icon-strategy"></m-card>
