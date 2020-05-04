@@ -2,20 +2,6 @@
   "name": "web",
   "version": "0.1.0",
   "private": true,
-  "devDependencies": {
-    "@vue/cli-plugin-babel": "~4.3.0",
-    "@vue/cli-plugin-eslint": "~4.3.0",
-    "@vue/cli-plugin-router": "~4.3.0",
-    "@vue/cli-service": "~4.3.0",
-    "babel-eslint": "^10.1.0",
-    "eslint": "^6.7.2",
-    "eslint-plugin-vue": "^6.2.2",
-    "fibers": "^5.0.0",
-    "node-sass": "^4.14.0",
-    "sass": "^1.26.5",
-    "sass-loader": "^8.0.2",
-    "vue-template-compiler": "^2.6.11"
-  },
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
@@ -23,8 +9,27 @@
   },
   "dependencies": {
     "core-js": "^3.6.4",
+    "dayjs": "^1.8.26",
+    "swiper": "^5.3.8",
     "vue": "^2.6.11",
+    "vue-awesome-swiper": "^4.1.1",
     "vue-router": "^3.1.6"
+  },
+  "devDependencies": {
+    "@vue/cli-plugin-babel": "~4.3.0",
+    "@vue/cli-plugin-eslint": "~4.3.0",
+    "@vue/cli-plugin-router": "~4.3.0",
+    "@vue/cli-service": "~4.3.0",
+    "axios": "^0.18.0",
+    "babel-eslint": "^10.1.0",
+    "eslint": "^6.7.2",
+    "eslint-plugin-vue": "^6.2.2",
+    "fibers": "^5.0.0",
+    "node-sass": "^4.14.0",
+    "sass": "^1.26.5",
+    "sass-loader": "^8.0.2",
+    "vue-cli-plugin-axios": "0.0.4",
+    "vue-template-compiler": "^2.6.11"
   },
   "eslintConfig": {
     "root": true,
@@ -45,6 +50,6 @@
     "last 2 versions",
     "not dead"
   ],
-  "readme": "ERROR: No README data found!",
-  "_id": "web@0.1.0"
+  "_id": "web@0.1.0",
+  "readme": "ERROR: No README data found!"
 }

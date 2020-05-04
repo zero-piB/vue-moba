@@ -122,6 +122,14 @@ a{
     
 }
 
+//text-overflow
+.text-ellipisis{
+    display: inline-block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
 .btn{
     border: none;
     border-radius: 0.1538rem;

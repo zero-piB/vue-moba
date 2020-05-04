@@ -30,10 +30,11 @@
     <!-- end of nav-icons -->
     <m-list-card  class="mt-4" title="新闻资讯" icon="icon-menu" :newsData="newsData">
       <template v-slot:items="{category}">
-        <div class="py-3" v-for="(item, i) in category.newsList" :key="i+10">
-          <span>[{{item.type}}]|</span>
-          <span>{{item.title}}</span>
-          <span>{{item.date}}</span>
+        <div class="py-3 d-flex" v-for="(item, i) in category.newsList" :key="i+10">
+          <span class="text-dark-1 pl-4">[{{item.categoryName}}]</span>
+          <span class="px-1">|</span>
+          <span class="text-ellipisis flex-1">{{item.title}}</span>
+          <span class="text-grey px-4 fs-xs">{{item.createdAt | date}}</span>
         </div>
       </template>
     </m-list-card>
@@ -47,18 +48,12 @@
 </template>
 
 <script>
+import dayjs from 'dayjs'
 export default {
   data(){
     return{
 
-      newsData:new Array(5).fill({
-        categoryName:'热门',
-        newsList:new Array(5).fill({
-          type:'活动',
-          title:'5月1日全服不停机更新公告',
-          date:'05/03'
-        })
-      }),
+      newsData:[],
 
       home_nav:[{'title':'爆料站','class':'sprite-news'},{'title':'故事站','class':'sprite-stories'},
       {'title':'周边商城','class':'sprite-malls'},{'title':'体验服','class':'sprite-ava'},
@@ -76,6 +71,20 @@ export default {
         // Some Swiper option/callback...
       }
     }
+  },
+  filters:{
+    date(val){
+      return dayjs(val).format('MM/DD')
+    }
+  },
+  methods:{
+    async fetchNewsData(){
+      const res = await this.axios.get('news/list')
+      this.newsData = res.data
+    }
+  },
+  created(){
+    this.fetchNewsData()
   }
 }
 </script>
