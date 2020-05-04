@@ -28,7 +28,7 @@
       </div>
     </div>
     <!-- end of nav-icons -->
-    <m-list-card  class="mt-4" title="新闻资讯" icon="icon-menu" :newsData="newsData">
+    <m-list-card  class="mt-4" title="新闻资讯" icon="icon-menu" :catesData="newsData">
       <template v-slot:items="{category}">
         <div class="py-3 d-flex" v-for="(item, i) in category.newsList" :key="i+10">
           <span class="text-dark-1 pl-4">[{{item.categoryName}}]</span>
@@ -38,9 +38,19 @@
         </div>
       </template>
     </m-list-card>
-    <m-card class="mt-3" title="新闻资讯" icon="icon-menu"></m-card>
 
-    <m-card class="mt-3" title="英雄列表" icon="icon-helmet-battle-li"></m-card>
+    <m-list-card class="mt-4" title="英雄列表" icon="icon-helmet-battle-li" :catesData="heroesData" :class="'pb-4'">
+      <template #items="{category}">
+        <div class="d-flex flex-wrap pt-2" style="margin: 0 0.5rem">
+          <div class="pb-2 text-center px-2" style="width:20%" v-for="(hero, i) in category.heroesList" :key="i+10">
+            <img class="w-100" :src="hero.avatar"/>
+            <h3 class="fs-xs my-0" style="font-weight: normal">{{hero.name}}</h3>
+          </div>
+        </div>
+      </template>
+    </m-list-card>
+
+    
     <m-card class="mt-3" title="精彩视频" icon="icon-icon1"></m-card>
     <m-card class="mt-3" title="图文攻略" icon="icon-strategy"></m-card>
   </div>
@@ -54,7 +64,7 @@ export default {
     return{
 
       newsData:[],
-
+      heroesData:[],
       home_nav:[{'title':'爆料站','class':'sprite-news'},{'title':'故事站','class':'sprite-stories'},
       {'title':'周边商城','class':'sprite-malls'},{'title':'体验服','class':'sprite-ava'},
       {'title':'新人专区','class':'sprite-fishes'},{'title':'荣耀·继承','class':'sprite-honor'},
@@ -81,10 +91,15 @@ export default {
     async fetchNewsData(){
       const res = await this.axios.get('news/list')
       this.newsData = res.data
+    },
+    async fetchHeroesData(){
+      const res = await this.axios.get('heroes/list')
+      this.heroesData = res.data
     }
   },
   created(){
     this.fetchNewsData()
+    this.fetchHeroesData()
   }
 }
 </script>
