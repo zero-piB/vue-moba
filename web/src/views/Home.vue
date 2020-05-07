@@ -30,12 +30,13 @@
     <!-- end of nav-icons -->
     <m-list-card  class="mt-4" title="新闻资讯" icon="icon-menu" :catesData="newsData">
       <template #items="{category}">
-        <div class="py-3 d-flex" v-for="(item, i) in category.newsList" :key="i+10">
+        <router-link tag="div" :to="`/articles/${item._id}`"
+        class="py-3 d-flex" v-for="(item, i) in category.newsList" :key="i+10">
           <span class="text-dark-1 pl-4">[{{item.categoryName}}]</span>
           <span class="px-1">|</span>
           <span class="text-ellipisis flex-1">{{item.title}}</span>
           <span class="text-grey px-4 fs-xs">{{item.createdAt | date}}</span>
-        </div>
+        </router-link>
       </template>
     </m-list-card>
 <!-- end of newsList -->

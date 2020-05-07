@@ -6,60 +6,81 @@
   "description": "",
   "glyphs": [
     {
-      "icon_id": "518926",
+      "icon_id": "55335726",
       "name": "vidio",
       "font_class": "icon1",
       "unicode": "e60e",
       "unicode_decimal": 58894
     },
     {
-      "icon_id": "3223127",
+      "icon_id": "55335727",
+      "name": "back",
+      "font_class": "back",
+      "unicode": "e606",
+      "unicode_decimal": 58886
+    },
+    {
+      "icon_id": "55335728",
       "name": "menu",
       "font_class": "menu",
       "unicode": "e63d",
       "unicode_decimal": 58941
     },
     {
-      "icon_id": "3362945",
+      "icon_id": "55335729",
       "name": "bookmark",
       "font_class": "bookmark",
       "unicode": "e652",
       "unicode_decimal": 58962
     },
     {
-      "icon_id": "3918244",
+      "icon_id": "55335730",
       "name": "strategy",
       "font_class": "strategy",
       "unicode": "e607",
       "unicode_decimal": 58887
     },
     {
-      "icon_id": "4380416",
+      "icon_id": "55335731",
       "name": "menu",
       "font_class": "menu1",
       "unicode": "e619",
       "unicode_decimal": 58905
     },
     {
-      "icon_id": "5846380",
+      "icon_id": "55335732",
       "name": "tag",
       "font_class": "tag",
       "unicode": "e63c",
       "unicode_decimal": 58940
     },
     {
-      "icon_id": "10678255",
+      "icon_id": "55335733",
       "name": "helmet-battle-li",
       "font_class": "helmet-battle-li",
       "unicode": "e912",
       "unicode_decimal": 59666
     },
     {
-      "icon_id": "12592246",
+      "icon_id": "55335734",
       "name": "Title Bar-Three level list title",
       "font_class": "TitleBar-Threelevellisttitle",
       "unicode": "e6a0",
       "unicode_decimal": 59040
+    },
+    {
+      "icon_id": "3173760",
+      "name": "related",
+      "font_class": "related",
+      "unicode": "e61a",
+      "unicode_decimal": 58906
+    },
+    {
+      "icon_id": "13333956",
+      "name": "back-line",
+      "font_class": "back-line",
+      "unicode": "e50d",
+      "unicode_decimal": 58637
     }
   ]
 }
