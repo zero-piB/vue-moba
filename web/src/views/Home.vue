@@ -43,10 +43,11 @@
     <m-list-card class="mt-4" title="英雄列表" icon="icon-helmet-battle-li" :catesData="heroesData" :class="'pb-4'">
       <template #items="{category}">
         <div class="d-flex flex-wrap pt-2" style="margin: 0 0.5rem">
-          <div class="pb-2 text-center px-2" style="width:20%" v-for="(hero, i) in category.heroesList" :key="i+10">
+          <router-link tag="div" :to="`/heroes/${hero._id}`"
+          class="pb-2 text-center px-2" style="width:20%" v-for="(hero, i) in category.heroesList" :key="i+10">
             <img class="w-100" :src="hero.avatar"/>
             <h3 class="fs-xs my-0" style="font-weight: normal">{{hero.name}}</h3>
-          </div>
+          </router-link>
         </div>
       </template>
     </m-list-card>

@@ -1,8 +1,8 @@
 <template>
   <div class="page-article" v-if="article">
-    <div class="d-flex pt-3 px-2 pb-3 border-bottom">
+    <div class="d-flex pt-3 px-2 pb-3 border-bottom  fs-xs">
       <span class="iconfont icon-back text-blue"></span>
-      <strong class="text-ellipisis flex-1 px-1 text-blue fs-xs">{{article.title}}</strong>
+      <strong class="text-ellipisis flex-1 px-1 text-blue">{{article.title}}</strong>
       <div class="text-grey">{{article.createdAt|date}}</div>
     </div>
     <div class="article-body text-center" v-html="article.body"></div>

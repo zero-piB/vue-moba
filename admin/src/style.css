@@ -18,3 +18,7 @@
     min-height: 5rem;
     display: block;
 }
+.banner{
+    min-height: 6rem;
+    max-height: 6rem;
+}

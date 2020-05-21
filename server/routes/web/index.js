@@ -86,5 +86,11 @@ module.exports = app => {
         res.send(article)
     })
 
+    //英雄详情页面
+    router.get('/heroes/:id', async (req, res) => { 
+        const hero = await Hero.findById(req.params.id).lean()
+        res.send(hero)
+    })
+
     app.use('/web/api',router)
 }

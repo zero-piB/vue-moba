@@ -15,8 +15,18 @@
                             class="avatar-uploader"
                             :action="uploadUrl"
                             :show-file-list="false"
-                            :on-success="afterUpload">
+                            :on-success="res => $set(model,'avatar',res.url)">
                             <img v-if="model.avatar" :src="model.avatar" class="avatar">
+                            <i v-else class="el-icon-plus avatar-uploader-icon"></i>
+                        </el-upload>
+                    </el-form-item>
+                    <el-form-item label="Banner">
+                        <el-upload
+                            class="avatar-uploader"
+                            :action="uploadUrl"
+                            :show-file-list="false"
+                            :on-success="res => $set(model,'banner',res.url)">
+                            <img v-if="model.banner" :src="model.banner" class="avatar">
                             <i v-else class="el-icon-plus avatar-uploader-icon"></i>
                         </el-upload>
                     </el-form-item>
@@ -74,12 +84,18 @@
                                     :action="axios.defaults.baseURL+'/upload' "
                                     :show-file-list="false"
                                     :on-success="res => $set(item,'icon',res.url)">
-                                    <img v-if="item.icon" :src="item.icon" class="avatar">
+                                    <img v-if="item.icon" :src="item.icon" class="banner">
                                     <i v-else class="el-icon-plus avatar-uploader-icon"></i>
                                 </el-upload>
                             </el-form-item>
                             <el-form-item label="描述">
                                 <el-input type="textarea" v-model="item.description"/>
+                            </el-form-item>
+                            <el-form-item label="冷却值">
+                                <el-input v-model="item.delay"/>
+                            </el-form-item>
+                            <el-form-item label="消耗">
+                                <el-input v-model="item.cost"/>
                             </el-form-item>
                             <el-form-item label="使用提示">
                                 <el-input type="textarea" v-model="item.tips"/>
@@ -88,6 +104,31 @@
                                 <el-button type="danger" @click="model.skills.splice(i,1)">删除技能</el-button>
                             </el-form-item>
                             
+                        </el-col>
+                    </el-row>
+                </el-tab-pane>
+
+                <el-tab-pane label="最佳搭档" name="partners">
+                    <el-button @click="model.partners.push({})"><i class="el-icon-plus"></i>添加搭档</el-button>
+                    <el-row type="flex" style="flex-wrap:wrap; margin-top:1rem">
+                        <el-col :md="12" v-for="(item,i) in model.partners" :key="i">
+                            <el-form-item label="英雄">
+                                <el-select v-model="item.hero" multiple>
+                                    <el-option v-for="hero in heroes" :label="hero.name" 
+                                    :key="hero._id" :value="hero._id"> 
+                                    </el-option>
+                                </el-select>
+                            </el-form-item>
+                            <el-form-item label="英雄头像">
+                                <img v-if="item.icon" :src="item.hero.avatar" class="avatar">
+                                <i v-else class="el-icon-plus avatar-uploader-icon"></i>
+                            </el-form-item>
+                            <el-form-item label="描述">
+                                <el-input type="textarea" v-model="item.description"/>
+                            </el-form-item>
+                            <el-form-item>
+                                <el-button type="danger" @click="model.skills.splice(i,1)">删除技能</el-button>
+                            </el-form-item>
                         </el-col>
                     </el-row>
                 </el-tab-pane>
@@ -105,13 +146,15 @@ export default {
     data(){
         return{
             categories:[],
+            heroes:[],
             items:[],
             model:{
                 avatar:'',
                 scores:{    
                     difficulty:0,
                 },
-                skills:[]
+                skills:[],
+                partners:[]
             },
         }
     },
@@ -126,7 +169,7 @@ export default {
             }else{
                 await this.axios.post('rest/heroes',this.model)
             } 
-            this.$router.push('/heroes/list')
+            //this.$router.push('/heroes/list')
             this.$message({
                 type:'success',
                 message:'更新成功'
@@ -141,7 +184,7 @@ export default {
             const res = await this.axios.get(`rest/categories`)
             this.categories = res.data.filter(item=>{
                 if(item.parent){
-                    return item.parent.name === '英雄'
+                    return item.parent.name === '英雄分类'
                 }
                 return false;
             })
@@ -150,14 +193,15 @@ export default {
             const res = await this.axios.get(`rest/items`)
             this.items = res.data
         },
-        afterUpload(res){
-            this.model.avatar = res.url
-            // console.log(res) 
-        }
+        async fetchHeroes(){
+            const res = await this.axios.get(`rest/heroes`)
+            this.heroes = res.data
+        },
     },
     created(){
         this.fetchCategories()
         this.fetchItems()
+        this.fetchHeroes()
         this.id && this.fetch()
     }
 }
