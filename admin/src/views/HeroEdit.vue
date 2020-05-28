@@ -26,7 +26,7 @@
                             :action="uploadUrl"
                             :show-file-list="false"
                             :on-success="res => $set(model,'banner',res.url)">
-                            <img v-if="model.banner" :src="model.banner" class="avatar">
+                            <img v-if="model.banner" :src="model.banner" class="banner">
                             <i v-else class="el-icon-plus avatar-uploader-icon"></i>
                         </el-upload>
                     </el-form-item>
@@ -113,21 +113,17 @@
                     <el-row type="flex" style="flex-wrap:wrap; margin-top:1rem">
                         <el-col :md="12" v-for="(item,i) in model.partners" :key="i">
                             <el-form-item label="英雄">
-                                <el-select v-model="item.hero" multiple>
+                                <el-select v-model="item.hero" filterable>
                                     <el-option v-for="hero in heroes" :label="hero.name" 
                                     :key="hero._id" :value="hero._id"> 
                                     </el-option>
                                 </el-select>
                             </el-form-item>
-                            <el-form-item label="英雄头像">
-                                <img v-if="item.icon" :src="item.hero.avatar" class="avatar">
-                                <i v-else class="el-icon-plus avatar-uploader-icon"></i>
-                            </el-form-item>
                             <el-form-item label="描述">
                                 <el-input type="textarea" v-model="item.description"/>
                             </el-form-item>
                             <el-form-item>
-                                <el-button type="danger" @click="model.skills.splice(i,1)">删除技能</el-button>
+                                <el-button type="danger" @click="model.partners.splice(i,1)">删除搭档</el-button>
                             </el-form-item>
                         </el-col>
                     </el-row>

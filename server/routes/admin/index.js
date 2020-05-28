@@ -37,7 +37,7 @@ module.exports = app =>  {
             queryOptions.populate = 'categories'
         }
         //关联查询
-        const items = await req.Model.find().setOptions(queryOptions).limit() 
+        const items = await req.Model.find().setOptions(queryOptions).lean()
         res.send(items)
     })
 
